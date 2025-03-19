@@ -1,4 +1,4 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
+// © Argo. All rights reserved.
 
 #include "MonsterBattleSystem.h"
 
@@ -18,3 +18,5 @@ void FMonsterBattleSystemModule::ShutdownModule()
 #undef LOCTEXT_NAMESPACE
 	
 IMPLEMENT_MODULE(FMonsterBattleSystemModule, MonsterBattleSystem)
+
+DEFINE_LOG_CATEGORY(LogMonsterBattleSystem);

@@ -1,8 +1,10 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
+// © Argo. All rights reserved.
 
 #pragma once
 
 #include "Modules/ModuleManager.h"
+
+MONSTERBATTLESYSTEM_API DECLARE_LOG_CATEGORY_EXTERN(LogMonsterBattleSystem, Log, All);
 
 class FMonsterBattleSystemModule : public IModuleInterface
 {

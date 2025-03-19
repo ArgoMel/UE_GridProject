@@ -20,26 +20,30 @@ public class MonsterBattleSystem : ModuleRules
 				// ... add other private include paths required here ...
 			}
 			);
-			
-		
-		PublicDependencyModuleNames.AddRange(
+
+
+        PublicDependencyModuleNames.AddRange(new string[] 
+		{
+			"Core", 
+			"CoreUObject",
+			"Engine", 
+			"InputCore" ,
+            "GameplayAbilities", 
+			"GameplayTags", 
+			"GameplayTasks", 
+			"Paper2D",
+        });
+
+
+        PrivateDependencyModuleNames.AddRange(
 			new string[]
 			{
-				"Core",
-				// ... add other public dependencies that you statically link with here ...
-			}
-			);
-			
-		
-		PrivateDependencyModuleNames.AddRange(
-			new string[]
-			{
-				"CoreUObject",
-				"Engine",
 				"Slate",
 				"SlateCore",
-				// ... add private dependencies that you statically link with here ...	
-			}
+                "AIModule", 
+				"NavigationSystem",
+				"UMG",
+            }
 			);
 		
 		
