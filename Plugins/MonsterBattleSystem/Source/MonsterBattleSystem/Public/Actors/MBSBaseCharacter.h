@@ -71,6 +71,10 @@ public:
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	TObjectPtr<UMBSAbilitySystemComponent> AbilitySystemComponent;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	TObjectPtr<USphereComponent> AttackSphere;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	TObjectPtr<USphereComponent> TriggerSphere;
 
 	/** Passive gameplay effects applied on creation */
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Abilities")
@@ -89,13 +93,7 @@ protected:
 	uint8 bAbilitiesInitialized:1;
 
 	/**************************/
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Config")
-	TObjectPtr<USphereComponent> AttackSphere;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Config")
-	uint8 bIsMoving:1;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Config")
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Config")
 	EMBSAnimationDirection CurrentAnimationDirection;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Config")
@@ -112,6 +110,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Config")
 	float AttackRadius{150.f};
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Config")
+	uint8 bIsMoving:1;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Config")
 	uint8 bAttackGate:1;

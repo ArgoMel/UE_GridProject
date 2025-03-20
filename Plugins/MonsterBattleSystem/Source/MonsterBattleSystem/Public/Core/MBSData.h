@@ -31,6 +31,24 @@ enum class EMBSAbilityInputID : uint8
 };
 
 USTRUCT(BlueprintType)
+struct MONSTERBATTLESYSTEM_API FMonsterStats
+{
+	GENERATED_BODY()
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int Health{};
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int XP{};
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int Level{1};
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bOwned{false};
+};
+
+USTRUCT(BlueprintType)
 struct MONSTERBATTLESYSTEM_API FMBSMovementFlipbooks
 {
 	GENERATED_BODY()

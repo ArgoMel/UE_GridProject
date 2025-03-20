@@ -24,20 +24,25 @@ AMBSBaseCharacter::AMBSBaseCharacter()
 
 	OnCharacterMovementUpdated.AddDynamic(this, &AMBSBaseCharacter::Animate);
 
+	GetCapsuleComponent()->SetCapsuleRadius(70.f);
+
+	GetSprite()->SetRelativeScale3D(FVector(11.f, 11.f, 11.f));
+	GetSprite()->SetRelativeLocation(FVector(0.f, 0.f, -90.f));
+	GetSprite()->SetUsingAbsoluteRotation(true);
+	GetSprite()->SetFlipbook(MovementFlipbooks.IdleDown);
+	GetSprite()->CastShadow = true;
+	
 	AttackSphere = CreateDefaultSubobject<USphereComponent>(TEXT("Attack Sphere"));
 	AttackSphere->SetupAttachment(RootComponent);
 	AttackSphere->SetSphereRadius(AttackRadius);
 
+	TriggerSphere = CreateDefaultSubobject<USphereComponent>(TEXT("Trigger Sphere"));
+	TriggerSphere->SetupAttachment(RootComponent);
+	TriggerSphere->SetSphereRadius(130.f);
+
 	GetCharacterMovement()->GravityScale = 2.8f;
 	GetCharacterMovement()->JumpZVelocity = JumpPowerLevels[0];
-
-	GetCapsuleComponent()->SetCapsuleRadius(70.f);
-
-	GetSprite()->SetRelativeScale3D(FVector(11.f, 11.f, 11.f));
-	GetSprite()->SetUsingAbsoluteRotation(true);
-	GetSprite()->SetFlipbook(MovementFlipbooks.IdleDown);
-	GetSprite()->CastShadow = true;
-
+	
 	AbilitySystemComponent = CreateDefaultSubobject<UMBSAbilitySystemComponent>(TEXT("Ability System Component"));
 	AbilitySystemComponent->SetIsReplicated(true);
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Minimal);
@@ -272,8 +277,9 @@ void AMBSBaseCharacter::OnAttackEndNative()
 float AMBSBaseCharacter::GetHealth() const
 {
 	if (!Attributes)
+	{
 		return 1.f;
-
+	}
 	return Attributes->GetHealth();
 }
 
@@ -284,8 +290,10 @@ float AMBSBaseCharacter::GetMaxHealth() const
 
 void AMBSBaseCharacter::Animate(float DeltaTime, FVector OldLocation, const FVector OldVelocity)
 {
-	if (!bAttackGate) return;
-
+	if (!bAttackGate)
+	{
+		return;
+	}
 	TOptional<FMinimalViewInfo> ViewInfo;
 	if (!IsPlayerControlled())
 	{
