@@ -23,6 +23,7 @@
 #include "UI/BGLobbyMenu.h"
 
 ABGGamePlayerController::ABGGamePlayerController()
+: BGGameInstance(nullptr)
 {
 	bReplicates = true;
 }

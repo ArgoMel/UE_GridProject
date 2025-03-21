@@ -73,7 +73,7 @@ struct FBGStaticMeshBank : public FTableRowBase
 	FText StaticMeshName={};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	UStaticMesh* StaticMes={};
+	UStaticMesh* StaticMesh={};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	EBGClassCategory ClassCategory={};
