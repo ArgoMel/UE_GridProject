@@ -11,5 +11,6 @@ public class GridProjectEditorTarget : TargetRules
 		DefaultBuildSettings = BuildSettingsVersion.V5;
 		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_5;
 		ExtraModuleNames.Add("GridProject");
+		ExtraModuleNames.Add("BattleGrids");
 	}
 }

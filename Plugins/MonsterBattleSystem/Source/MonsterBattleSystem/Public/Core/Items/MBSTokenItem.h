@@ -2,7 +2,6 @@
 
 #pragma once
 
-#include "Core/MBSAssetManager.h"
 #include "Core/Items/MBSItem.h"
 #include "MBSTokenItem.generated.h"
 
