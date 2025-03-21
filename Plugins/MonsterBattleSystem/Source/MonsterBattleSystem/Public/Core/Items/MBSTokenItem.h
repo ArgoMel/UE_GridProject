@@ -15,7 +15,7 @@ public:
 	/** Constructor */
 	UMBSTokenItem()
 	{
-		ItemType = UMBSAssetManager::TokenItemType;
+		ItemType = {TEXT("Token")};
 		MaxCount = 0; // Infinite
 	}
 };
